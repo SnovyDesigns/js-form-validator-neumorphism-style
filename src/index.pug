@@ -4,6 +4,31 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
-    title XXXX
+    title Form Validator - Neumorphism Style
     link(href=require("./favicon.ico"), rel='shortcut icon')
   body
+    form#form.form
+      h2 Register With Us
+      .input
+        .input__box
+          label(for="username") Username
+          input#username(type="text", placeholder="Enter username")
+          small Error message
+        .input__box
+          label(for="email") Email
+          input#email(type="text", placeholder="Enter email")
+          small Error message
+        .input__box
+          label(for="password") Password
+          input#password(type="password", placeholder="Enter password")
+          small Error message
+        .input__box
+          label(for="password2") Confirm Password
+          input#password2(type="password", placeholder="Enter password again")
+          small Error message
+        .input__box
+          input(type="submit", value="Submit")
+      .mode
+        p Dark Mode
+        input.mode__input(type="checkbox")
+        p Light Mode
