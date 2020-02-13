@@ -1,15 +1,19 @@
 // ***** COLORS *****
+$c-white: #fff;
+$c-black: #000;
+$c-error: #d63031;
+$c-success: #00b894;
 
-// ----------------------------------------------
+// Dark Mode:
+$c-dark: #131419;
+$c-grey: #868686;
+$c-grey-dark: #555;
+$c-grey-light: #c7c7c7;
+$c-blue: #03a9f4;
+$c-blue-dark: #006c9c;
 
-// ***** FONT WEIGHTS *****
-$font-weight-thin: 100;
-$font-weight-light: 300;
-$font-weight-regular: 400;
-$font-weight-bold: 700;
-$font-weight-black: 900;
-
-// ----------------------------------------------
-
-// ***** FONT SIZES *****
-$font-size-base: 1.6rem;
+// Light Mode:
+$c-light: #ebf5fc;
+$c-lm-blue: #1e3799;
+$c-lm-blue-dark: #0c2461;
+$c-lm-grey: #bdcada;

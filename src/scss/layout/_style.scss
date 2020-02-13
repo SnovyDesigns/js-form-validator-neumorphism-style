@@ -1,0 +1,193 @@
+// Dark/Light Mode Switch
+.mode-checkbox {
+  @include absolute(bottom 10% left 50%);
+  transform: translateX(-50%);
+  @include size(8.8rem, 4em);
+  appearance: none;
+  background: rgba($color: #c6c6c6, $alpha: 0.2);
+  outline: none;
+  @include brr(2);
+  @include trans(0.5);
+  box-shadow: inset 0 0 0.8rem rgba($color: $c-black, $alpha: 0.2);
+  z-index: 2;
+
+  &:checked {
+    background: #2ecc71;
+
+    &::before {
+      left: 4.4rem;
+    }
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    @include size(4.4rem);
+    @include brr(2rem);
+    @include absolute(top 0 left 0);
+    transform: scale(1.1);
+    background: $c-white;
+    box-shadow: 0 0.3rem 0.5rem rgba($color: $c-black, $alpha: 0.2);
+    z-index: 3;
+    @include trans(0.5);
+  }
+}
+
+// Transition
+.container,
+.form {
+  @include trans(0.4);
+}
+
+// Dark Mode
+.container {
+  display: flex;
+  @include center;
+  @include size(100%, 100vh);
+  background: $c-dark;
+  position: relative;
+  z-index: 1;
+}
+
+.form {
+  position: relative;
+  width: 35rem;
+  padding: 4rem;
+  background: $c-dark;
+  @include brr(1);
+  text-align: center;
+  box-shadow: -0.5rem -0.5rem 1rem rgba($color: $c-white, $alpha: 0.05),
+    0.5rem 0.5rem 1.5rem rgba($color: $c-black, $alpha: 0.05);
+
+  &__heading {
+    color: #c7c7c7;
+    font-weight: 500;
+    letter-spacing: 0.4px;
+    @include trans(0.4);
+  }
+}
+
+%input {
+  height: 5rem;
+  background: $c-dark;
+  border: none;
+  outline: none;
+  padding: 0.5rem 1.5rem;
+  @include brr(4);
+  @include trans(0.4);
+  color: $c-blue;
+}
+
+.input {
+  text-align: left;
+  margin-top: 4rem;
+
+  &__box {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__label {
+    color: $c-grey;
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+  }
+
+  &__small {
+    margin-top: 0.8rem;
+    color: $c-error;
+    font-weight: 300;
+    visibility: hidden;
+
+    &.error {
+      visibility: visible;
+    }
+  }
+
+  &__field {
+    @extend %input;
+    box-shadow: inset -0.2rem -0.2rem 0.6rem rgba($color: $c-white, $alpha: 0.1),
+      inset 0.2rem 0.2rem 0.6rem rgba($color: $c-black, $alpha: 0.8);
+    font-size: 1.8rem;
+    font-weight: 300;
+
+    &::placeholder {
+      color: $c-grey-dark;
+    }
+
+    &.error {
+      color: $c-error;
+    }
+
+    &.success {
+      color: $c-success;
+    }
+  }
+
+  &__submit {
+    @extend %input;
+    margin-top: 2rem;
+    box-shadow: -0.2rem -0.2rem 0.6rem rgba($color: $c-white, $alpha: 0.1),
+      0.2rem 0.2rem 0.6rem rgba($color: $c-black, $alpha: 0.8);
+    font-weight: 500;
+    font-size: 2rem;
+
+    &:active {
+      color: $c-blue-dark;
+      box-shadow: inset -0.2rem -0.2rem 0.6rem
+          rgba($color: $c-white, $alpha: 0.1),
+        inset 0.2rem 0.2rem 0.6rem rgba($color: $c-black, $alpha: 0.8);
+    }
+  }
+}
+
+// Light Mode
+.mode-checkbox:checked ~ .container {
+  background: $c-light;
+
+  .form {
+    background: $c-light;
+    box-shadow: -0.5rem -0.5rem 1.5rem rgba($color: $c-white, $alpha: 0.8),
+      0.5rem 0.5rem 1rem rgba($color: $c-black, $alpha: 0.1);
+
+    &__heading {
+      color: $c-dark;
+    }
+  }
+
+  %input {
+    background: $c-light;
+    color: $c-lm-blue;
+    box-shadow: inset -0.2rem -0.2rem 0.6rem rgba($color: $c-white, $alpha: 1),
+      inset 0.2rem 0.2rem 0.6rem rgba($color: $c-black, $alpha: 0.1);
+  }
+
+  .input {
+    &__field {
+      &::placeholder {
+        color: $c-lm-grey;
+      }
+
+      &.error {
+        color: $c-error;
+      }
+
+      &.success {
+        color: $c-success;
+      }
+    }
+
+    &__submit {
+      box-shadow: -0.2rem -0.2rem 0.6rem rgba($color: $c-white, $alpha: 1),
+        0.2rem 0.2rem 0.6rem rgba($color: $c-black, $alpha: 0.1);
+
+      &:active {
+        color: $c-lm-blue-dark;
+        box-shadow: inset -0.2rem -0.2rem 0.6rem
+            rgba($color: $c-white, $alpha: 1),
+          inset 0.2rem 0.2rem 0.6rem rgba($color: $c-black, $alpha: 0.1);
+      }
+    }
+  }
+}

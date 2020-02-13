@@ -27,14 +27,3 @@ ul {
 a {
   text-decoration: none;
 }
-
-img {
-  max-width: 100%;
-  display: block;
-  object-fit: cover;
-}
-
-::selection {
-  background-color: blue;
-  color: white;
-}
