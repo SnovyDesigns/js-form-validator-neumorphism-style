@@ -118,6 +118,10 @@
 
     &.error {
       color: $c-error;
+
+      &::placeholder {
+        color: $c-error;
+      }
     }
 
     &.success {
@@ -171,6 +175,10 @@
 
       &.error {
         color: $c-error;
+
+        &::placeholder {
+          color: $c-error;
+        }
       }
 
       &.success {
